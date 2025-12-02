@@ -29,7 +29,9 @@ def rewrite_query(query, partitions):
 
         # Valider FROM TP_Table
         from_part = q_upper.split("FROM")[1].split()[0].strip()
-        if from_part != "TP_Table":
+        #rendre minuscule pour comparaison avec les fragments
+        from_part = from_part.lower()
+        if from_part != "tp_table":
             return "Erreur : La requête doit être sur TP_Table"
 
         # Identifier les fragments nécessaires

@@ -66,32 +66,8 @@ L'application s'ouvre sur http://localhost:8501
 ### 4. Réécriture de requêtes
 - Réécrit les requêtes originales pour utiliser les fragments
 
-## Initialiser le dépôt Git et publier sur GitHub
-
-1. Initialiser le dépôt local et faire un commit initial:
-
-```bash
-cd "./"
-git init -b main
-git add .
-git commit -m "Initial commit"
-```
-
-2. Si vous avez la CLI `gh` (GitHub CLI) configurée, créez et poussez le repo directement:
-
-```bash
-# crée le dépôt sous votre compte GitHub et pousse la branche main
-gh repo create fragmentation-verticale --public --source=. --remote=origin --push
-```
-
-3. Sinon, créez un dépôt sur GitHub via l'interface web, puis ajoutez le remote et poussez:
-
-```bash
-git remote add origin git@github.com:<votre-compte>/fragmentation-verticale.git
-git branch -M main
-git push -u origin main
-```
-
+### 5. Simulation du temps d'éxecution
+_ Simule le temps d'éxecution d'une requète en ajoutant un temps de latence
 ## Structure du projet
 
 ```
@@ -104,7 +80,8 @@ git push -u origin main
 │   ├── generate_data.py  # Génération de données
 │   ├── parser.py         # Construction matrice d'usage
 │   ├── partionner.py     # K-Means clustering
-│   └── rewriter.py       # Réécriture de requêtes
+│   ├── rewriter.py       # Réécriture de requêtes
+│   └── time_estimator.py # Simulation du temps d'éxecution
 └── venv/
 ```
 
