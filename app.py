@@ -12,7 +12,7 @@ from modules.time_estimator import simulate_execution_time
 
 # Configuration de la page
 st.set_page_config(page_title="Fragmentation Verticale", layout="wide")
-st.title("🔍 Outil Simple de Fragmentation Verticale")
+st.title("Fragmentation Verticale")
 
 
 # -------------------------- 1. Génération de données --------------------------
@@ -115,10 +115,10 @@ if "coords" not in st.session_state or st.session_state.get("coords_sites") != n
     st.session_state.latence = lat
     st.session_state.coords_sites = nb_sites
 
-st.subheader("📍 Coordonnées des sites")
+st.subheader("Coordonnées des sites")
 st.json(st.session_state.coords)
 
-st.subheader("⏱️ Latence (calculée via distance)")
+st.subheader("Latence (calculée via distance)")
 st.json(st.session_state.latence)
 
 # Assign fragments to sites
@@ -166,12 +166,12 @@ if "last_query" in st.session_state:
         st.graphviz_chart(graph)
 
     if st.button("Exécuter la requête réécrite"):
-        st.write("🔎 Requête exécutée :")
+        st.write("Requête exécutée :")
         st.code(st.session_state.last_query)
 
         # Exécution réelle dans PostgreSQL
         result = execute_query(st.session_state.last_query)
-        st.write("📌 Résultat :")
+        st.write(" Résultat :")
         st.write(result)
 
         # Détection des fragments utilisés (as indices)
@@ -181,7 +181,7 @@ if "last_query" in st.session_state:
             if f"Fragment_{i+1}" in rewrite:
                 fragments_used.append(i+1)
 
-        st.write("🧩 Fragments impliqués :", fragments_used)
+        st.write("Fragments impliqués :", fragments_used)
 
         # Simulation
         if "sites" in st.session_state and "latence" in st.session_state:
